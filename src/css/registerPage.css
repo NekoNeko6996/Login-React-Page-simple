@@ -1,0 +1,13 @@
+#repeat-password-box {
+    align-self: center;
+    position: relative;
+}
+#input-repeat-password {
+    margin-bottom: 30px;
+}
+#input-repeat-password:focus + #p-password {
+    transform: translateY(-30px);
+}
+#input-repeat-password:valid + #p-password {
+    transform: translateY(-30px);
+}
