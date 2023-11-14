@@ -38,7 +38,11 @@ export default function RegisterContainer() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        if(!data.registerStatus) {
+          toast.error('Username has already existed');
+          return;
+        }
+        window.location.href = '/login';
       })
       .catch((err) => {
         console.error(err);
