@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginRoot from "./router/loginRoot.jsx"
 import LoginContainer from "./assets/component/loginContainer.jsx";
 import RegisterContainer from "./assets/component/RegisterContainer.jsx";
+import Home from "./router/home.jsx";
 
 //
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         element: <RegisterContainer />
       }
     ]
+  },
+  {
+    path: "/home",
+    element: <Home />
   }
 ]);
 

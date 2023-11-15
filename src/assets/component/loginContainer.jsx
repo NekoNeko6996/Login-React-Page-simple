@@ -8,41 +8,58 @@ export default function LoginContainer() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitLogin = async () => {
-    if (username == "") {
-      toast.error("Require Username!");
-      return;
-    }
-    if (password == "") {
-      toast.error("Require Password!");
-      return;
-    }
+  const submitLogin = async (event) => {
+    event.preventDefault();
 
-    fetch("http://localhost:5000/login", {
-      method: "post",
-      body: JSON.stringify({
-        username: username,
-        password: password,
-        date: new Date(),
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        return response.json();
+    try {
+      if (username == "") {
+        toast.error("Require Username!");
+        return;
+      }
+      if (password == "") {
+        toast.error("Require Password!");
+        return;
+      }
+
+      fetch("http://localhost:5000/login", {
+        method: "post",
+        body: JSON.stringify({
+          username: username,
+          password: password,
+          date: new Date(),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (!data.success) {
+            toast.error("Username or password is incorrect!");
+            return;
+          }
+          window.location.href = "/home";
+          window.sessionStorage.setItem("token", data.token);
+          window.sessionStorage.setItem("refreshToken", data.refreshToken);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div id="login-register-container">
-      <form action="" id="login-form">
+      <form
+        action=""
+        id="login-form"
+        onSubmit={(event) => submitLogin(event)}
+        method="post"
+      >
         <h1>Login</h1>
         <div id="username-box">
           <input
@@ -73,10 +90,10 @@ export default function LoginContainer() {
           </p>
         </div>
         <input
-          type="button"
+          type="submit"
           value="Login"
           id="input-login-btn"
-          onClick={submitLogin}
+          onClick={(event) => submitLogin(event)}
         />
         <p id="p-text-create-account">
           No Account?{" "}
