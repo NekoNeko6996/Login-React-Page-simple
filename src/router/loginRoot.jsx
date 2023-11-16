@@ -6,7 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 //
 
 export default function LoginPage() {
-
+  if(window.sessionStorage.getItem("token") != null && window.sessionStorage.getItem("refreshToken") != null) {
+    window.location.href = '/home'
+    return;
+  }
   return (
     <div id="login-page-container">
       <ToastContainer position="bottom-center"/>
