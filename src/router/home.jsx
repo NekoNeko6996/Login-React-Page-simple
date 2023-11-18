@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import ItemsContainer from "../assets/component/itemsContainer";
+
 import "../css/homePage.css";
 
 export default function HomePage() {
@@ -16,6 +18,7 @@ export default function HomePage() {
     ) {
       window.location.href = "/login";
     }
+    console.log("da")
   }, []);
 
   const userContainerOnclick = () => {
@@ -26,6 +29,7 @@ export default function HomePage() {
       userContainerOption.className = "user-container-option-open";
     else userContainerOption.className = "user-container-option-close";
   };
+
 
   return (
     <div id="home-container">
@@ -49,7 +53,12 @@ export default function HomePage() {
           </ul>
         </div>
       </header>
-      <section id="home-section"></section>
+      <section id="home-section">
+        <header id="banner-container">
+          <img src="https://cf.shopee.vn/file/vn-50009109-664a060afd35af45768a191d191a1f5e_xxhdpi" alt="banner" />
+        </header>
+        <ItemsContainer />
+      </section>
     </div>
   );
 }
