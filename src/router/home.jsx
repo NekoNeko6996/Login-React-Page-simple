@@ -1,8 +1,26 @@
 import { useEffect } from "react";
 
+//
 import ItemsContainer from "../assets/component/itemsContainer";
-
+import SlideShow from "../assets/component/slideShow";
+//
 import "../css/homePage.css";
+
+// test data
+const data = [
+  {
+    url: "https://cf.shopee.vn/file/vn-50009109-3b4844af326ff3b9c1e1793d0dbda9f3_xxhdpi",
+    link: "",
+  },
+  {
+    url: "https://cf.shopee.vn/file/vn-50009109-1f18bb1d3f752570668b28ee92501320_xxhdpi",
+    link: "",
+  },
+  {
+    url: "https://cf.shopee.vn/file/vn-50009109-e568371d9aa38a64c31a18cd56e6fbaf_xxhdpi",
+    link: "",
+  },
+];
 
 export default function HomePage() {
   const Logout = () => {
@@ -18,7 +36,7 @@ export default function HomePage() {
     ) {
       window.location.href = "/login";
     }
-    console.log("da")
+    console.log("da");
   }, []);
 
   const userContainerOnclick = () => {
@@ -29,7 +47,6 @@ export default function HomePage() {
       userContainerOption.className = "user-container-option-open";
     else userContainerOption.className = "user-container-option-close";
   };
-
 
   return (
     <div id="home-container">
@@ -55,7 +72,7 @@ export default function HomePage() {
       </header>
       <section id="home-section">
         <header id="banner-container">
-          <img src="https://cf.shopee.vn/file/vn-50009109-664a060afd35af45768a191d191a1f5e_xxhdpi" alt="banner" />
+          <SlideShow data={data} scrollStep={833} />
         </header>
         <ItemsContainer />
       </section>

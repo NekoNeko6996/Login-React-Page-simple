@@ -141,8 +141,8 @@ const testData = [
 export default function ItemsContainer() {
   return (
     <section id="items-container">
-      {testData.map((data) => (
-        <div className="items-box" key={data.id}>
+      {testData.map((data, index) => (
+        <div className="items-box" key={index}>
           <img src={data.imgSrc} alt="" />
           <p className="items-name">{data.name}</p>
           <span>
