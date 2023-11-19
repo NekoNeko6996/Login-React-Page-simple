@@ -1,5 +1,5 @@
 #logNavigationBar {
-    height: 50px;
+    height: 60px;
     width: 100vw;
 
     position: absolute;
@@ -8,6 +8,15 @@
     background-color: var(--main-color);
     display: flex;
     justify-content: right;
+}
+#logNavigationBar h2 {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-self: center;
+    margin: 0;
 }
 .logNavigation-link {
     height: 100%;

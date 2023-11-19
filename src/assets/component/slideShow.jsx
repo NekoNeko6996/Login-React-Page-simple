@@ -1,24 +1,32 @@
 import PropTypes from "prop-types";
 import "../../css/slideShow.css";
+import { useCallback, useEffect } from "react";
+import React from "react";
 //
 
-function SlideShow({ data, scrollStep }) {
+const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
   var step = 0;
   //
-  const onSlideClick = (direction) => {
+  const onSlideClick = useCallback((direction) => {
     const container = document.getElementById("img-slide-container");
     const currentScroll = container.scrollLeft;
 
     if (direction == "left") {
-      if (currentScroll <= 0)
+      if (currentScroll <= 0) {
         container.scrollLeft = scrollStep * (data.length - 1);
-      else container.scrollLeft = currentScroll - scrollStep;
-      step--;
+        step = data.length - 1;
+      } else {
+        container.scrollLeft = currentScroll - scrollStep;
+        step--;
+      }
     } else {
-      if (currentScroll >= scrollStep * (data.length - 1))
+      if (currentScroll >= scrollStep * (data.length - 1)) {
         container.scrollLeft = 0;
-      else container.scrollLeft = currentScroll + scrollStep;
-      step++;
+        step = 0;
+      } else {
+        container.scrollLeft = currentScroll + scrollStep;
+        step++;
+      }
     }
 
     document
@@ -28,13 +36,17 @@ function SlideShow({ data, scrollStep }) {
           ? (element.style.backgroundColor = "black")
           : (element.style.backgroundColor = "white")
       );
-    if (step >= 2) step = 1;
-    else if (step <= 0) step = 2;
-  };
+  });
 
-  setInterval(() => {
-    onSlideClick("right");
-  }, 4000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onSlideClick("right");
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [onSlideClick]);
 
   return (
     <div id="slideShow-container">
@@ -61,7 +73,7 @@ function SlideShow({ data, scrollStep }) {
       </div>
     </div>
   );
-}
+});
 
 // xác địng kiểu dữ liệu của biến truyền vào
 //có thể kiểm tra nhiều thuộc tính khác

@@ -1,4 +1,7 @@
 import "../../css/items.css";
+//
+import { Link } from "react-router-dom";
+//
 
 const testData = [
   {
@@ -9,6 +12,7 @@ const testData = [
     stamp: "",
     price: 21324,
     sold: 14,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -18,6 +22,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -27,6 +32,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -36,6 +42,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -45,6 +52,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -54,6 +62,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -63,6 +72,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -72,6 +82,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -81,6 +92,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -90,6 +102,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -99,6 +112,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -108,6 +122,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -117,6 +132,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -126,6 +142,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
   {
     id: "23124p12931289sd1231",
@@ -135,6 +152,7 @@ const testData = [
     stamp: "",
     price: 12312382,
     sold: 241,
+    link: "#",
   },
 ];
 
@@ -142,19 +160,23 @@ export default function ItemsContainer() {
   return (
     <section id="items-container">
       {testData.map((data, index) => (
-        <div className="items-box" key={index}>
-          <img src={data.imgSrc} alt="" />
-          <p className="items-name">{data.name}</p>
-          <span>
-            <p className="items-price">₫{data.price.toLocaleString("vi-VN")}</p>
-            <p className="items-sold-text">Sold:</p>
-            <p className="items-sold">
-              {data.sold < 1000
-                ? data.sold
-                : `${Math.floor(data.sold / 1000)}k`}
-            </p>
-          </span>
-        </div>
+        <Link to={data.link} key={index} id="items-container-link">
+          <div className="items-box">
+            <img src={data.imgSrc} alt="" />
+            <p className="items-name">{data.name}</p>
+            <span>
+              <p className="items-price">
+                ₫{data.price.toLocaleString("vi-VN")}
+              </p>
+              <p className="items-sold-text">Sold:</p>
+              <p className="items-sold">
+                {data.sold < 1000
+                  ? data.sold
+                  : `${Math.floor(data.sold / 1000)}k`}
+              </p>
+            </span>
+          </div>
+        </Link>
       ))}
     </section>
   );

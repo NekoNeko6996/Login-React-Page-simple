@@ -1,0 +1,33 @@
+#search-bar-container {
+    height: 30px;
+    width: 450px;
+
+    background-color: white;
+    position: relative;
+    justify-self: center;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#search-input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    padding: 5px;
+}
+#search-btn {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+    background-color: white;
+    border: none;
+}
+#search-btn img {
+    width: 100%;
+}

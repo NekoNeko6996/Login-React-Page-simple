@@ -12,6 +12,9 @@ export default function LoginPage() {
   }
   return (
     <div id="login-page-container">
+      <div id="login-img-container">
+        <img src="https://wallpapercave.com/wp/wp1877578.jpg" alt="login-img" />
+      </div>
       <ToastContainer position="bottom-center"/>
       <LoginNavigation />
       <Outlet />

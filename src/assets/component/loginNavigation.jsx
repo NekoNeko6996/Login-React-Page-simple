@@ -5,6 +5,7 @@ import '../../css/LoginNavigation.css'
 export default function LoginNavigation() {
     return (
         <div id="logNavigationBar">
+            <h2>The Shop No Care</h2>
             <Link to={`/home`} className="logNavigation-link">Home</Link>
             <Link to={`/Contact`} className="logNavigation-link">Contact</Link>
             <Link to={`/About`} className="logNavigation-link">About</Link>
