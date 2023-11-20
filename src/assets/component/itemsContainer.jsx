@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 const testData = [
   {
     id: "23124p129312891231",
-    name: "giay hieu",
+    name: "Túi Xách",
     imgSrc:
       "https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-lo3tu4fxw5ujcc",
     stamp: "",
-    price: 21324,
-    sold: 14,
+    price: 120000,
+    sold: 1432,
     link: "#",
   },
   {
     id: "23124p12931289sd1231",
-    name: "giayqwww wwwww www wwwwwwww wwww3 eqwwwwwwwwwwqw hieu",
+    name: "Áo Khoác",
     imgSrc:
       "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lln8ziejh5toc4",
     stamp: "",
-    price: 12312382,
+    price: 349999,
     sold: 241,
     link: "#",
   },
@@ -56,7 +56,7 @@ const testData = [
   },
   {
     id: "23124p12931289sd1231",
-    name: "giayqwww wwwww www wwwwwwww wwww3 eqwwwwwwwwwwqw hieu",
+    name: "giayqwww wwwww www wwwwwwww wwww3 wwwwqw hieu",
     imgSrc:
       "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lln8ziejh5toc4",
     stamp: "",
@@ -66,7 +66,7 @@ const testData = [
   },
   {
     id: "23124p12931289sd1231",
-    name: "giayqwww wwwww www wwwwwwww wwww3 eqwwwwwwwwwwqw hieu",
+    name: "giayqwww wwwww www wwwwwwww wwww3 wwwwqw hieu",
     imgSrc:
       "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lln8ziejh5toc4",
     stamp: "",
@@ -76,7 +76,7 @@ const testData = [
   },
   {
     id: "23124p12931289sd1231",
-    name: "giayqwww wwwww www wwwwwwww wwww3 eqwwwwwwwwwwqw hieu",
+    name: "giayqwww wwwww www wwwwwwww wwww3 wwwwwqw hieu",
     imgSrc:
       "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lln8ziejh5toc4",
     stamp: "",
@@ -86,7 +86,7 @@ const testData = [
   },
   {
     id: "23124p12931289sd1231",
-    name: "giayqwww wwwww www wwwwwwww wwww3 eqwwwwwwwwwwqw hieu",
+    name: "giayqwww wwwww www wwwwwwww wwww3 wwwwwwqw hieu",
     imgSrc:
       "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lln8ziejh5toc4",
     stamp: "",

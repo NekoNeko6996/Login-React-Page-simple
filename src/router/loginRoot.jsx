@@ -1,11 +1,12 @@
 import LoginNavigation from "../assets/component/loginNavigation";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from 'react-toastify'
+import React from "react";
 
 import 'react-toastify/dist/ReactToastify.css';
 //
 
-export default function LoginPage() {
+const LoginPage = React.memo(function LoginPage() {
   if(window.sessionStorage.getItem("token") != null && window.sessionStorage.getItem("refreshToken") != null) {
     window.location.href = '/home'
     return;
@@ -20,4 +21,6 @@ export default function LoginPage() {
       <Outlet />
     </div>
   );
-}
+});
+
+export default LoginPage;

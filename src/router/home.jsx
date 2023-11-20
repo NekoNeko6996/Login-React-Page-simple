@@ -1,7 +1,7 @@
 import { useEffect, lazy } from "react";
 import ReactPaginate from "react-paginate";
-//css bootstrap 
-import 'bootstrap/dist/css/bootstrap.min.css';
+//css bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //
 const ItemsContainer = lazy(() => import("../assets/component/itemsContainer"));
@@ -30,7 +30,7 @@ const data = [
     link: "",
   },
 ];
-// 
+//
 const data_category = [
   {
     name: "ao",
@@ -52,21 +52,23 @@ const data_category = [
   },
   {
     name: "phu kien",
-    imgUrl: "https://down-vn.img.susercontent.com/file/86c294aae72ca1db5f541790f7796260_tn&quot",
+    imgUrl:
+      "https://down-vn.img.susercontent.com/file/86c294aae72ca1db5f541790f7796260_tn&quot",
     link: "#",
   },
   {
     name: "do trang tri",
-    imgUrl: "https://down-vn.img.susercontent.com/file/099edde1ab31df35bc255912bab54a5e_tn&quot",
+    imgUrl:
+      "https://down-vn.img.susercontent.com/file/099edde1ab31df35bc255912bab54a5e_tn&quot",
     link: "#",
   },
   {
     name: "do dung nha biep",
-    imgUrl: "https://down-vn.img.susercontent.com/file/24b194a695ea59d384768b7b471d563f_tn&quot",
+    imgUrl:
+      "https://down-vn.img.susercontent.com/file/24b194a695ea59d384768b7b471d563f_tn&quot",
     link: "#",
   },
 ];
-
 
 // ///////////////////////////////////////////////////////////////////////////////
 export default function HomePage() {
@@ -97,7 +99,7 @@ export default function HomePage() {
 
   const handlePageClick = () => {
     console.log()
-  }
+  };
   const pageCount = 15;
 
   return (
@@ -126,31 +128,30 @@ export default function HomePage() {
         <header id="banner-container">
           <SlideShow data={data} scrollStep={833} />
         </header>
-        <Category data={data_category}/>
+        <Category data={data_category} />
         <ItemsContainer />
       </section>
       <footer id="home-footer">
-      <ReactPaginate
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-        renderOnZeroPageCount={null}
-      />
+        <ReactPaginate
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+          renderOnZeroPageCount={null}
+        />
       </footer>
     </div>
   );

@@ -1,42 +1,45 @@
 import PropTypes from "prop-types";
 import "../../css/slideShow.css";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import React from "react";
 //
 
 const SlideShow = React.memo(function SlideShow({ data, scrollStep }) {
-  var step = 0;
+  const step = useRef(0);
   //
-  const onSlideClick = useCallback((direction) => {
-    const container = document.getElementById("img-slide-container");
-    const currentScroll = container.scrollLeft;
+  const onSlideClick = useCallback(
+    (direction) => {
+      const container = document.getElementById("img-slide-container");
+      const currentScroll = container.scrollLeft;
 
-    if (direction == "left") {
-      if (currentScroll <= 0) {
-        container.scrollLeft = scrollStep * (data.length - 1);
-        step = data.length - 1;
+      if (direction == "left") {
+        if (currentScroll <= 0) {
+          container.scrollLeft = scrollStep * (data.length - 1);
+          step.current = data.length - 1;
+        } else {
+          container.scrollLeft = currentScroll - scrollStep;
+          step.current--;
+        }
       } else {
-        container.scrollLeft = currentScroll - scrollStep;
-        step--;
+        if (currentScroll >= scrollStep * (data.length - 1)) {
+          container.scrollLeft = 0;
+          step.current = 0;
+        } else {
+          container.scrollLeft = currentScroll + scrollStep;
+          step.current++;
+        }
       }
-    } else {
-      if (currentScroll >= scrollStep * (data.length - 1)) {
-        container.scrollLeft = 0;
-        step = 0;
-      } else {
-        container.scrollLeft = currentScroll + scrollStep;
-        step++;
-      }
-    }
 
-    document
-      .querySelectorAll(".carousel-dots")
-      .forEach((element, key) =>
-        key == step
-          ? (element.style.backgroundColor = "black")
-          : (element.style.backgroundColor = "white")
-      );
-  });
+      document
+        .querySelectorAll(".carousel-dots")
+        .forEach((element, key) =>
+          key == step.current
+            ? (element.style.backgroundColor = "black")
+            : (element.style.backgroundColor = "white")
+        );
+    },
+    [data.length, scrollStep]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
